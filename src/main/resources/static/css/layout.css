@@ -1,0 +1,16 @@
+.itemsMenu{
+    padding-left: 23px;
+}
+
+.itemsMenu a{
+    line-height: normal !important;
+}
+
+.itemsMenu a span{
+    font-size: 10px;
+}
+
+.navbar .navbar-brand{
+    /*font-weight: bold;*/
+    text-transform: unset;
+}
