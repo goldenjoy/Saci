@@ -10,7 +10,7 @@
         <div class="modal-content">
             <form class="needs-validation" novalidate method="post">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="updateDescCatalogoLongTitle">Modal title</h5>
+                    <h5 class="modal-title" id="updateDescCatalogoLongTitle">Actualizar a: </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -19,6 +19,7 @@
                     <div class="form-group">
                         <label>Descripción</label>
                         <input type="hidden" id="action-type" action-type="update">
+                        <input type="hidden" id="idItem">
                         <input id="desc" type="text" class="form-control" placeholder="Litros, Unidades, Kilo..." th:maxlength="15" required>
                         <div class="invalid-feedback">Ingrese la descripción de la unidad de medida</div>
                     </div>
