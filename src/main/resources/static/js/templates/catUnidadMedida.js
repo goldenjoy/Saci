@@ -16,11 +16,21 @@ $( document ).ready(function() {
                 event.stopPropagation();
 
         		if (!(form.checkValidity() === false)) {
-          			const obj = {desc: $("#desc").val().trim()};
-                    const json = JSON.stringify(obj);
+          			const desc = {desc: $(form).find('#desc').val().trim()};
+                    const json = JSON.stringify(desc);
+                    const actionType = $(form).find("#action-type").attr("action-type").trim();
+                    var type;
+
+                    //console.log("desc: " + $(form).find('#desc').val().trim());
+                    //console.log("action-type: " + actionType);
+
+                    if(actionType === "insert")
+                        type = "post";
+                    else if(actionType === "update")
+                        type = "put";
 
         			$.ajax({
-						type: "post",
+						type: type,
 				    	url: contextRoot+"/service/unidadMedida/",
                         data: json,
                         contentType: "application/json",
@@ -28,7 +38,7 @@ $( document ).ready(function() {
 				   	 	cache : false,
 				   	 	async: false,
 				    	success: function(result){
-				    	    console.log(result);
+				    	    //console.log(result);
 
                             var table = document.getElementById("tablaUnidadesMedida");
                             if(parseInt(document.getElementById("cantList").value) === 0){
@@ -44,7 +54,8 @@ $( document ).ready(function() {
                             cell0.innerHTML = result.id;
                             cell1.innerHTML = result.desc;
                             cell2.innerHTML = "fecha";
-                            cell3.innerHTML =  `<button type="button" rel="tooltip" class="btn btn-info btn-icon btn-sm " data-original-title="" title="Actualizar la descripción">
+                            cell3.innerHTML =  `<button type="button" class="btn btn-primary btn-icon btn-sm" data-toggle="modal"
+                                                    data-target="#updateDescCatalogo" rel="tooltip" title="Actualizar la descripción">
                                                     <i class="fa fa-pencil"></i>
                                                 </button>`;
 			         	},

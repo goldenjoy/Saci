@@ -1,10 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="UTF-8" />
 </head>
 <body>
-
+<!-- Modal para actualizar la descripción de un elemento de los catalogos -->
+<div th:fragment="updateDescCatalogo" class="modal fade" id="updateDescCatalogo" tabindex="-1" role="dialog" aria-labelledby="updateDescCatalogoTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <form class="needs-validation" novalidate method="post">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="updateDescCatalogoLongTitle">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Descripción</label>
+                        <input type="hidden" id="action-type" action-type="update">
+                        <input id="desc" type="text" class="form-control" placeholder="Litros, Unidades, Kilo..." th:maxlength="15" required>
+                        <div class="invalid-feedback">Ingrese la descripción de la unidad de medida</div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 </body>
 </html>

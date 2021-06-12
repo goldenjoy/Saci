@@ -44,7 +44,8 @@
                                     <div class="col-md-12 col-lg-12">
                                         <div class="form-group">
                                             <label>Descripción</label>
-                                            <input id="desc" type="text" class="form-control" placeholder="Litros, Unidades, Kilo..." th:maxlength="25" required>
+                                            <input type="hidden" id="action-type" action-type="insert">
+                                            <input id="desc" type="text" class="form-control" placeholder="Litros, Unidades, Kilo..." th:maxlength="15" required>
                                             <div class="invalid-feedback">Ingrese la descripción de la unidad de medida</div>
                                         </div>
                                     </div>
@@ -98,7 +99,8 @@
                                                 05/04/2021
                                             </td>
                                             <td class="text-right">
-                                                <button type="button" rel="tooltip" class="btn btn-info btn-icon btn-sm " data-original-title="" title="Actualizar la descripción">
+                                                <button type="button" class="btn btn-primary btn-icon btn-sm" data-toggle="modal"
+                                                        data-target="#updateDescCatalogo" rel="tooltip" title="Actualizar la descripción">
                                                     <i class="fa fa-pencil"></i>
                                                 </button>
                                             </td>
@@ -114,6 +116,9 @@
 
         <!-- Footer -->
         <div th:replace="fragments/footer :: footer"></div>
+
+        <!-- Modal -->
+        <div th:replace="fragments/modal :: updateDescCatalogo"></div>
     </div>
 </div>
 
@@ -123,8 +128,11 @@
 <script th:src="@{/js/core/bootstrap.min.js}"></script>
 <script th:src="@{/js/plugins/perfect-scrollbar.jquery.min.js}"></script>
 <script th:src="@{/js/templates/common.js}"></script>
+
+<!-- JS Template -->
 <script th:src="@{/js/templates/catUnidadMedida.js}"></script>
-<!-- Notifications Plugin -->
+
+<!-- Notifications Plugins -->
 <script th:src="@{/js/plugins/bootstrap-notify.js}"></script>
 </body>
 </html>
