@@ -23,7 +23,7 @@ class CatPuestoLaboralService(private val daoCat: CatPuestoLaboralDao):CrudSimpl
 
     override fun actualizar(t: CatPuestoLaboral): CatPuestoLaboral {
         return if (this.daoCat.existsById(t.id))
-            this.daoCat.save(t)
+            this.guardar(t)
         else
             throw EntityNotFoundException("El puesto laboral ${t.desc} con el identificador ${t.id} no se puede actualizar por que no existe en el catálogo")
     }

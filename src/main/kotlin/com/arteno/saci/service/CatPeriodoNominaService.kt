@@ -23,7 +23,7 @@ class CatPeriodoNominaService(private val daoCat: CatPeriodoNominaDao):CrudSimpl
 
     override fun actualizar(t: CatPeriodoNomina): CatPeriodoNomina {
         return if (this.daoCat.existsById(t.id))
-            this.daoCat.save(t)
+            this.guardar(t)
         else
             throw EntityNotFoundException("El periodo de nomina ${t.desc} con el identificador ${t.id} no se puede actualizar por que no existe")
     }

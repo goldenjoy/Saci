@@ -23,7 +23,7 @@ class CatUnidadMedidaService(private val daoCat: CatUnidadMedidaDao):CrudSimple<
 
     override fun actualizar(t: CatUnidadMedida): CatUnidadMedida {
         return if (this.daoCat.existsById(t.id))
-            this.daoCat.save(t)
+            this.guardar(t)
         else
             throw EntityNotFoundException("La unidad de medida ${t.desc} no puede ser actualizada por que no existe en el sistema")
     }

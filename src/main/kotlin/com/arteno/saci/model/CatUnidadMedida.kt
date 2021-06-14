@@ -9,7 +9,7 @@ data class CatUnidadMedida (
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     var id:Int=0,
 
-    @get:Size(min = 3, max = 15)
+    @get:Size(min = 3, max = 25)
     @Column(unique = true)
     val desc:String){
 

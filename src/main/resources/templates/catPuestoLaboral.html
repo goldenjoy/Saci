@@ -26,7 +26,7 @@
     <div class="main-panel">
 
         <!-- Navbar -->
-        <div th:replace="fragments/header :: navbar('Catálogo de las unidades de medida de los productos')"></div>
+        <div th:replace="fragments/header :: navbar('Catálogo de los puestos laborales en la empresa')"></div>
 
         <!-- End Navbar -->
         <div class="content">
@@ -41,13 +41,13 @@
                         <div class="card-body">
                             <form class="needs-validation" novalidate method="post">
                                 <input type="hidden" id="action-type" value="insert">
-                                <input type="hidden" id="url-type" value="catUnidadMedida">
+                                <input type="hidden" id="url-type" value="catPuestoLaboral">
 
                                 <div class="row">
                                     <div class="col-md-12 col-lg-12">
                                         <div class="form-group">
                                             <label>Descripción</label>
-                                            <input id="desc" type="text" class="form-control" placeholder="Litros, Unidades, Kilo..." th:maxlength="25" required>
+                                            <input id="desc" type="text" class="form-control" placeholder="Quesero, Ayudante quesero..." th:maxlength="25" required>
                                             <div class="invalid-feedback">Ingrese la descripción de la unidad de medida</div>
                                         </div>
                                     </div>
@@ -76,32 +76,32 @@
 
                                 <table id="tablaCatalogo" class="table">
                                     <thead class=" text-primary">
-                                        <th>
-                                            ID
-                                        </th>
-                                        <th>
-                                            Descripción
-                                        </th>
-                                        <th class="text-right">
-                                            Actualizar
-                                        </th>
+                                    <th>
+                                        ID
+                                    </th>
+                                    <th>
+                                        Descripción
+                                    </th>
+                                    <th class="text-right">
+                                        Actualizar
+                                    </th>
                                     </thead>
                                     <tbody>
-                                        <tr th:if="${listado.empty}">
-                                            <td colspan="4" align="center">No hay registros en el catálogo</td>
-                                        </tr>
+                                    <tr th:if="${listado.empty}">
+                                        <td colspan="4" align="center">No hay registros en el catálogo</td>
+                                    </tr>
 
-                                        <tr th:each="obj: ${listado}">
-                                            <td th:text="${obj.id}"></td>
-                                            <td th:id="${'tdDesc'+obj.id}"  th:text="${obj.desc}"></td>
-                                            <td th:id="${'tdBtn'+obj.id}"  class="text-right">
-                                                <button type="button" class="btn btn-primary btn-icon btn-sm" data-toggle="modal"
-                                                        th:attr="onclick='showModal(\'' + ${obj.id} + '\', \'' + ${obj.desc} + '\');'"
-                                                        rel="tooltip" title="Actualizar la descripción">
-                                                    <i class="fa fa-pencil"></i>
-                                                </button>
-                                            </td>
-                                        </tr>
+                                    <tr th:each="obj: ${listado}">
+                                        <td th:text="${obj.id}"></td>
+                                        <td th:id="${'tdDesc'+obj.id}"  th:text="${obj.desc}"></td>
+                                        <td th:id="${'tdBtn'+obj.id}"  class="text-right">
+                                            <button type="button" class="btn btn-primary btn-icon btn-sm" data-toggle="modal"
+                                                    th:attr="onclick='showModal(\'' + ${obj.id} + '\', \'' + ${obj.desc} + '\');'"
+                                                    rel="tooltip" title="Actualizar la descripción">
+                                                <i class="fa fa-pencil"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
                                     </tbody>
                                 </table>
                             </div>
