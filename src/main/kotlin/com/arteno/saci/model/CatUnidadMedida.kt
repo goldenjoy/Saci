@@ -4,14 +4,15 @@ import javax.persistence.*
 import javax.validation.constraints.Size
 
 @Entity
+@Table(name = "catUnidadesMedida")
 data class CatUnidadMedida (
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id:Int=0,
+    var id:Int = 0,
 
     @get:Size(min = 3, max = 25)
     @Column(unique = true)
-    val desc:String){
+    val descripcion:String){
 
     override fun equals(other:Any?): Boolean {
         other ?: return false

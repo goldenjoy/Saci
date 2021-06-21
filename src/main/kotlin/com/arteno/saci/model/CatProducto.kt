@@ -5,6 +5,7 @@ import javax.validation.constraints.Min
 import javax.validation.constraints.Size
 
 @Entity
+@Table(name = "catProductos")
 data class CatProducto (
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,7 +13,7 @@ data class CatProducto (
 
     @get:Size(min = 3, max = 25)
     @Column(unique = true)
-    val desc:String,
+    val descripcion:String,
 
     @ManyToOne
     val catUnidadMedida:CatUnidadMedida,

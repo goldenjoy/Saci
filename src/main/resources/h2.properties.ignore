@@ -1,0 +1,17 @@
+spring.output.ansi.enabled=always
+
+#{user.home} =  C:\Users\WINDOWS  -> jdbc:h2:file:C:/Users/WINDOWS/arteno/testdb
+
+spring.h2.console.enabled=true
+
+spring.datasource.url=jdbc:h2:file:${user.home}/arteno/testdb
+#spring.jpa.hibernate.ddl-auto=update
+spring.jpa.hibernate.ddl-auto=create-drop
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=sa
+spring.datasource.password=sa
+
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+
+logging.level.org.hibernate.SQL=DEBUG
+logging.level.org.hibernate.type.descriptor.SQL.BasicBinder=TRACE

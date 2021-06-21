@@ -7,22 +7,23 @@ import org.springframework.stereotype.Repository
 
 @Repository
 interface CatPeriodoNominaDao: JpaRepository<CatPeriodoNomina, Int>{
-    fun existsByDesc(@Param("desc") desc: String): Boolean
+    fun existsByDescripcion(@Param("descripcion") descripcion: String): Boolean
 }
 
 @Repository
 interface CatProductoDao: JpaRepository<CatProducto, Int>{
-    fun existsByDesc(@Param("desc") desc: String): Boolean
+    fun existsByDescripcion(@Param("descripcion") descripcion: String): Boolean
 }
 
 @Repository
 interface CatPuestoLaboralDao: JpaRepository<CatPuestoLaboral, Int>{
-    fun existsByDesc(@Param("desc") desc: String): Boolean
+    fun existsByDescripcion(@Param("descripcion") descripcion: String): Boolean
 }
 
 @Repository
 interface CatUnidadMedidaDao: JpaRepository<CatUnidadMedida, Int>{
-    fun existsByDesc(@Param("desc") desc: String): Boolean
+    fun existsByDescripcion(@Param("descripcion") descripcion: String): Boolean
+    fun findByDescripcionIgnoreCase(descripcion: String): CatUnidadMedida?
 }
 
 @Repository

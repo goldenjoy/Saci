@@ -4,6 +4,7 @@ import javax.persistence.*
 import javax.validation.constraints.Min
 
 @Entity
+@Table(name = "Gastos")
 data class Gasto (
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

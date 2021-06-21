@@ -5,6 +5,7 @@ import javax.validation.constraints.Min
 import javax.validation.constraints.Size
 
 @Entity
+@Table(name = "Empleados")
 data class Empleado (
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

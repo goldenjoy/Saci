@@ -41,13 +41,13 @@
                         <div class="card-body">
                             <form class="needs-validation" novalidate method="post">
                                 <input type="hidden" id="action-type" value="insert">
-                                <input type="hidden" id="url-type" value="catPeriodoNomina">
+                                <input type="hidden" id="url-type" value="periodoNomina">
 
                                 <div class="row">
                                     <div class="col-md-12 col-lg-12">
                                         <div class="form-group">
                                             <label>Descripción</label>
-                                            <input id="desc" type="text" class="form-control" placeholder="Semanal, Quicenal, Mensual..." th:maxlength="25" required>
+                                            <input id="descripcion" type="text" class="form-control" placeholder="Semanal, Quicenal, Mensual..." th:maxlength="25" required>
                                             <div class="invalid-feedback">Ingrese la descripción de la unidad de medida</div>
                                         </div>
                                     </div>
@@ -93,10 +93,10 @@
 
                                     <tr th:each="obj: ${listado}">
                                         <td th:text="${obj.id}"></td>
-                                        <td th:id="${'tdDesc'+obj.id}"  th:text="${obj.desc}"></td>
+                                        <td th:id="${'tdDesc'+obj.id}"  th:text="${obj.descripcion}"></td>
                                         <td th:id="${'tdBtn'+obj.id}"  class="text-right">
                                             <button type="button" class="btn btn-primary btn-icon btn-sm" data-toggle="modal"
-                                                    th:attr="onclick='showModal(\'' + ${obj.id} + '\', \'' + ${obj.desc} + '\');'"
+                                                    th:attr="onclick='showModal(\'' + ${obj.id} + '\', \'' + ${obj.descripcion} + '\');'"
                                                     rel="tooltip" title="Actualizar la descripción">
                                                 <i class="fa fa-pencil"></i>
                                             </button>
